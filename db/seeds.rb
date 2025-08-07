@@ -18,4 +18,4 @@ post = user.posts.create!(title: "First Post", url: "https://example.com", body:
 comment = post.comments.create!(user: user, body: "Looks cool!")
 
 # Add a reply to the comment
-reply = comment.replies.create!(user: user, post: post, body: "Thanks!")
+reply = Comment.create!(user: user, body: "Thanks!", post: post)
