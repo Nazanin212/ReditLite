@@ -1,13 +1,26 @@
-<h1>All Posts</h1>
+<div class="container mt-4">
+  <h1 class="mb-4">All Posts</h1>
 
-<%= link_to "New Post", new_post_path %>
-
-<ul>
   <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post_path(post) %>
-      (<%= link_to "Edit", edit_post_path(post) %> |
-       <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>)
-    </li>
+    <div class="post-card mb-3 shadow-sm">
+      <!-- Voting -->
+      <div class="vote-buttons">
+        <i class="bi bi-caret-up-fill"></i>
+        <div><%= post.score || 0 %></div>
+        <i class="bi bi-caret-down-fill"></i>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <h5 class="mb-1">
+          <%= link_to post.title, post.url.presence || post_path(post), class: "text-dark fw-bold" %>
+        </h5>
+        <small class="text-muted">
+          Posted by <%= post.user.username %> • <%= time_ago_in_words(post.created_at) %> ago
+        </small>
+        <p class="mt-2"><%= post.body %></p>
+        <%= link_to "Comments", post_path(post), class: "text-decoration-none text-primary" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

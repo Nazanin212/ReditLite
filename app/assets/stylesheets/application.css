@@ -8,3 +8,65 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+@import "bootstrap";
+
+body {
+background-color: #dae0e6; /* Reddit background */
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+.container {
+max-width: 700px;
+margin: 20px auto;
+}
+
+.post-card {
+background: white;
+border-radius: 4px;
+padding: 12px;
+display: flex;
+gap: 12px;
+margin-bottom: 12px;
+box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.vote-buttons {
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: 18px;
+color: #878a8c;
+}
+
+.vote-buttons i {
+cursor: pointer;
+}
+
+.vote-buttons i:hover {
+color: #ff4500; /* Reddit orange */
+}
+
+.post-content h2 {
+margin: 0 0 4px;
+font-size: 100px;
+}
+
+.post-content small {
+color: #787c7e;
+}
+
+.post-content p {
+margin-top: 8px;
+}
+
+a {
+color: #0079d3;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}

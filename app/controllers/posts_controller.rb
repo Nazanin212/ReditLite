@@ -47,4 +47,16 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :url, :body)
   end
+
+  def upvote
+    post = Post.find(params[:id])
+    post.increment!(:score)
+    redirect_to posts_path
+  end
+
+  def downvote
+    post = Post.find(params[:id])
+    post.decrement!(:score)
+    redirect_to posts_path
+  end
 end
